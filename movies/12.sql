@@ -1,0 +1,3 @@
+--In 12.sql, write a SQL query to list the titles of all movies in which both Johnny Depp and Helena Bonham Carter starred
+select title from movies where id in(select movie_id from stars where person_id = (select id from people where name = "Johnny Depp")INTERSECT select movie_id from stars where person_id = (select id from people where name = "Helena Bonham Carter"));
+--SELECT title FROM movies WHERE id IN( SELECT movie_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = "Johnny Depp")INTERSECT SELECT movie_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = "Helena Bonham Carter"));

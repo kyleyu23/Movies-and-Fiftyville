@@ -1,0 +1,2 @@
+--In 11.sql, write a SQL query to list the titles of the five highest rated movies (in order) that Chadwick Boseman starred in, starting with the highest rated
+select title from ((select movie_id, rating from ratings where movie_id in (select movie_id from stars where person_id = (select id from people where name = "Chadwick Boseman")) order by rating DESC limit 5) join movies on movie_id = movies.id);
